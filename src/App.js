@@ -75,6 +75,9 @@ export default class App extends React.Component {
 
   //Clic sur le jour du calendrier
   dayClick = (arg) => { 
+
+    if (!this.state.editable_boolean) { return false }
+
     this.state.modal = {
       ...this.state.modal, 
       item: { date: arg.dateStr },
@@ -181,7 +184,8 @@ export default class App extends React.Component {
                       disabled={this.state.role === 'admin' ? '' : 'disabled'} />
                 <span>Date : </span>
                 <DatePicker                    
-                    className="form-control" 
+                    className="form-control"
+                    disabled={this.state.role === 'admin' ? '' : 'disabled'} 
                     selected={ this.state.datePicker }
                     onChange={ this.changeDatePicker }
                     showTimeSelect
@@ -205,8 +209,8 @@ export default class App extends React.Component {
                       defaultValue={this.state.modal ? this.state.modal.item.description : ""} 
                       disabled={this.state.role === 'admin' ? '' : 'disabled'}/>
                                
-              </Modal.Body>
-              <Modal.Footer>
+              </Modal.Body>              
+              <Modal.Footer className={ this.state.editable_boolean === true ? '' : 'hidden' }>
                 <Button variant="primary" type="submit" value="Envoyer" >
                   Save
                 </Button>

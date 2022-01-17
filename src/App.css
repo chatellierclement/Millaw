@@ -38,6 +38,10 @@
 }
 
 /*Calendar CSS*/
+.hidden {
+  display: none;
+}
+
 .modal-header, .modal-footer {
   background: #ecf0f1;
 }
