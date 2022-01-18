@@ -11,9 +11,9 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import "react-datepicker/dist/react-datepicker.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'react-notifications/lib/notifications.css';
-import './App.css';
+import './Calendar.css';
 
-export default class App extends React.Component { 
+export default class Calendar extends React.Component { 
   
   constructor(props) {
     super(props);
@@ -169,7 +169,6 @@ export default class App extends React.Component {
   render() {      
     return (
       <>
-        <div className='container'>
           <NotificationContainer/>
 
           <Modal show={this.state.show} onHide={this.openCloseModal}>
@@ -233,7 +232,7 @@ export default class App extends React.Component {
               right: "dayGridMonth,dayGrid"
             }}
             buttonText={{
-              today:    "Mois en cours",
+              today:    "Courant",
               month:    "Mois",
               week:     "Semaine",
               day:      "Jour",
@@ -243,7 +242,6 @@ export default class App extends React.Component {
             eventDrop={this.eventDrop}
             events={this.state.events}
           />
-        </div>
       </>
     );    
   }  
